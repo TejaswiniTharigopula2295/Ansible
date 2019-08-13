@@ -1,0 +1,11 @@
+- hosts: test
+  become: yes
+  tasks:
+          - name: update system
+            apt:
+                    update_cache: yes
+          - name: install tomcat
+            apt:
+                    name: tomcat8
+                    state: latest
+

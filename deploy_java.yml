@@ -1,0 +1,18 @@
+- hosts: test
+  become: yes
+  tasks:
+    - name: clone git repo
+      git:
+                    repo: https://github.com/TejaswiniTharigopula2295/java-working.git
+                    version: master
+                    dest: /home/ubuntu/java
+    - name: Install maven
+      apt: 
+              name: maven
+              state: latest
+    - name: perform clean install
+      shell: mvn clean install
+      args:
+                     chdir: /home/ubuntu/java
+    - name: copy
+      shell: cp /home/ubuntu/java/target/example-1.0.war /var/lib/tomcat8/webapps/example-1.0.war 
