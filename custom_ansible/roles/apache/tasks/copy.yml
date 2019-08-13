@@ -1,0 +1,4 @@
+- name: copy file
+  copy:
+    src: /home/ubuntu/index.html
+    dest: /var/www/ansible/index.html

@@ -1,0 +1,4 @@
+- name: ansible.conf file
+  template:
+          src: ansible.conf
+          dest: /etc/apache2/sites-available/ansible.conf

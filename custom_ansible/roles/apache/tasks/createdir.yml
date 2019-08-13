@@ -1,0 +1,4 @@
+- name: create directory
+  file:
+          path: /var/www/ansible
+          state: directory

@@ -1,0 +1,8 @@
+---
+# tasks file for ./roles/apache
+ - import_tasks: update.yml
+ - import_tasks: install.yml
+ - import_tasks: createdir.yml
+ - import_tasks: copy.yml
+ - import_tasks: template.yml
+ - import_tasks: ensite.yml

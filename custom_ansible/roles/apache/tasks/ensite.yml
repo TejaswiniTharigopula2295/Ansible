@@ -1,0 +1,6 @@
+- name: enable site
+  shell: a2ensite ansible.conf
+- name: dissable site
+  shell: a2dissite 000-default.conf
+  notify: 
+      - restart 
