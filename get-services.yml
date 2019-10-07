@@ -1,0 +1,39 @@
+- hosts: test
+  become: yes
+  gather_facts: no
+  vars:
+                newline_character: "\n"
+                services_running: []
+                required: []
+                service_list: []
+  vars_prompt:
+          - name: "service"
+            prompt: "enter your service names separated by comma"
+  tasks:
+            - name: populate service facts
+              service_facts:
+
+            - name: populate running services
+              set_fact:
+                      services_running: "{{ services_running + [item] }}"
+              when: ansible_facts.services['{{item}}']['state'] == "running"
+
+              with_items: "{{ ansible_facts.services.keys() }}"
+
+            - name: parsing the input
+              set_fact:
+                      service_list: "{{ service.split(',')}}"
+
+
+            - name: iterating throgh servies_running
+              set_fact:
+                      required: "{{ required + [item[1]] }}"
+              when: "'{{item[1]}}'.startswith('{{item[0]}}')"
+              with_nested: 
+                    - "{{ service_list }}"
+                    - "{{ services_running}}"
+              
+            - name: storing the serivces 
+              debug:
+                      var: required
+
