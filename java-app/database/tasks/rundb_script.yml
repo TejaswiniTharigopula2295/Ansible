@@ -1,0 +1,4 @@
+ - name: Run Databse build script
+   ignore_errors: yes
+   mysql_db: name=simplehr state=import target=/home/ubuntu/db-script.sql
+

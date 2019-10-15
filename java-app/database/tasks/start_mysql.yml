@@ -1,0 +1,6 @@
+ - name: Start the MySQL service
+   sudo: yes
+   service:
+              name: mysql
+              state: started
+              enabled: true

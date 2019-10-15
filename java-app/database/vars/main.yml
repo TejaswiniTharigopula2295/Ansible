@@ -1,0 +1,5 @@
+---
+# vars file for database
+db_name: "simplehr"
+root_pwd: "admin"
+root_usr: "root"

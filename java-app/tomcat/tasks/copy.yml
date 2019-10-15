@@ -1,0 +1,9 @@
+- name: copy file
+  copy:
+          src: files/tomcat-users.xml
+          dest: /var/lib/tomcat8/conf/tomcat-users.xml
+- pause: 
+      minutes: 5
+  notify: 
+  - restart tomcat8
+

@@ -1,0 +1,5 @@
+ - name: copy file
+   copy:
+                      src: files/db-script.sql
+                      dest: /home/ubuntu/db-script.sql
+
